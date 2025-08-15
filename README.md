@@ -1,101 +1,139 @@
-# 🚀 AI Resume Analyser
+# 🚢 Smart Freight & Storage Planner
 
-![Resume Analyzer Banner](https://img.shields.io/badge/AI-Resume%20Analyser-blue)
-![Python](https://img.shields.io/badge/Python-3.9%2B-brightgreen)
-![Streamlit](https://img.shields.io/badge/Streamlit-Docker%20Space-red)
-![Groq LLM](https://img.shields.io/badge/LLM-Gemini-lightgrey)
+![Next.js](https://img.shields.io/badge/Next.js-15.4.6-black)
+![Prisma](https://img.shields.io/badge/Prisma-ORM-blue)
+![Neon](https://img.shields.io/badge/Postgres-Neon-green)
+![Gemini API](https://img.shields.io/badge/AI-Gemini-orange)
+![TailwindCSS](https://img.shields.io/badge/Style-TailwindCSS-blueviolet)
 
-An AI-powered resume analyser that compares resumes to job descriptions using NLP and vector similarity, offers tailored feedback, and even generates cover letters. Built with Streamlit, Gemini API, SentenceTransformers, and deployed on Streamlit.
+A logistics management platform to handle **shipments**, **voyages**, **AI-assisted planning**, and **tracking**. Built with **Next.js App Router**, **Prisma ORM**, **Neon Postgres**, and **Google Gemini API**, styled with **TailwindCSS** and deployed on **Vercel**.
 
 <div align="center">
- <img src="https://github.com/pawan941394/-AI-Resume-Analyzer/blob/main/screenshoots/Screenshot%202025-03-29%20115400.png" alt="AI Resume Analyzer Screenshot">
+ <img src="https://via.placeholder.com/800x400?text=Smart+Freight+%26+Storage+Planner" alt="Smart Freight & Storage Planner Screenshot">
 </div>
+
+---
 
 ## 🌐 Live Demo
 
-Try it instantly online:  
-[🔗 AI Resume Analyser Web App](https://ai-resume-analyser-app.streamlit.app/)
+Try it online:  
+[🔗 Live Web App](https://your-vercel-app-link.vercel.app/)
+
+---
 
 ## ✨ Features
 
-- **Resume Upload**: Upload one or more PDF resumes for evaluation  
-- **Job Description Input**: Paste or upload a JD to analyze against  
-- **AI Cover Letter**: Get an AI-generated cover letter tailored to the job  
-- **Match Scoring**: See how well your resume aligns with the job   
-- **Missing Keywords**: Identify key skills missing from your resume  
-- **Q&A Chatbot**: Ask questions based on your resume or JD  
-- **Gemini API LLM**: High-speed inference with Gemini LLM  
-- **Streamlit Docker**: Fully containerized and deployed on Streamlit
+- **Shipments CRUD** – Manage shipments with weight, volume, status, and priority  
+- **Voyages CRUD** – Create voyages with capacity, dates, and lanes  
+- **Tracking Events** – Log shipment events with location & time  
+- **Auto-Assign** – Rule-based assignment of shipments to voyages  
+- **AI Auto-Assign** – Gemini-powered smart assignment with capacity & route awareness  
+- **AI Console** – Ask natural language questions grounded in DB data  
+- **ETA+ Predictions** – Mock delay prediction tool  
+- **Snapshot Caching** – Avoids heavy DB scans for AI context
+
+---
+
 ## 🎥 Live Demo & Walkthrough
 
-[![Watch the demo](https://img.youtube.com/vi/VIDEO_ID_HERE/0.jpg)](https://github.com/user-attachments/assets/5f177f81-bd94-452e-a377-e1b84f6474fa)
+[![Watch the demo](https://img.youtube.com/vi/VIDEO_ID_HERE/0.jpg)](https://your-demo-video-link)
 
-<p align="center"><i>Click the image above to watch a quick demo of the AI Resume Analyzer</i></p>
+<p align="center"><i>Click the image above to watch a quick demo of the Smart Freight & Storage Planner</i></p>
 
-
+---
 
 ## 📋 Prerequisites
 
-- Python 3.9+
-- Hugging Face Account (for deployment)
+- Node.js 18+
+- Neon Postgres account ([Get started here](https://neon.tech))
 - Gemini API Key ([Get it here](https://ai.google.dev/gemini-api/docs/api-key))
-- Streamlit (for opensource deployment)
+- Vercel account for deployment
+
+---
 
 ## 🔧 Installation (Local)
 
 ```bash
-git clone https://github.com/rathod-0007/AI-Resume-Analyser.git
-cd AI-Resume-Analyser
-pip install -r requirements.txt
-streamlit run resume_analyser.py
-```
----
+git clone https://github.com/your-username/shipsy-assignment.git
+cd shipsy-assignment
+npm install
 
-## 🛠 How It Works
-- Extract Resume Text using **PyPDF2**
-- Embed Texts with **sentence-transformers**
-- Compare with JD using **cosine similarity**
-- Score & Recommend improvements
-- Generate a Cover Letter
-- Use **Gemini LLM** to accelerate responses
+Create .env with:
 
----
+DATABASE_URL="your-neon-pooled-url"
+DIRECT_URL="your-neon-direct-url"
+JWT_SECRET="your-secret"
+GEMINI_API_KEY="your-gemini-key"
 
-## 📦 Tech Stack
-- **Python**, **Streamlit**
-- **SentenceTransformers** (NLP)
-- **Gemini API** (LLM)
-- **PyPDF2** (PDF parsing)
-- **Docker**, **Streamlit**
 
----
+Run migrations:
 
-## 🐳 Streamlit Deployment (For streamlitshare.io)
-1. Ensure your main.py runs: `streamlit run resume_analyser.py`
-2. Push to Streamlit
-3. Add environment secret `GEMINI_API_KEY` from Google Gemini Studio
-4. Done! App will run on `Streamlit`
+npx prisma generate
+npx prisma migrate dev --name init
 
----
 
-## 🔐 API Key Setup
-- Get your **Gemini API key** from [Google Gemini Studio](https://ai.google.dev/gemini-api/docs/api-key)
-- Set it as an environment variable:
-  - In `.env`: `GEMINI_API_KEY=your_key`
+Start dev server:
 
----
+npm run dev
 
-## 👤 Author
-**Rathod Pavan Kumar Naik**  
-GitHub: [@rathod-0007](https://github.com/rathod-0007)  
-Project: [AI-Resume-Analyser](https://github.com/rathod-0007/AI-Resume-Analyser)
+🛠 How It Works
 
----
+Rule-based auto-assign: Matches shipments to voyages based on lane, date, capacity, and priority
 
-## 📄 License
-This project is licensed under the **Apache License 2.0** — see the [LICENSE](https://github.com/rathod-0007/AI-Resume-Analyser/blob/main/LICENSE) file.
+AI-assisted planning: Gemini selects optimal assignment plan and explains decisions
 
----
+AI Console: Queries the DB through structured tools with natural language
 
-## ⭐️ Support
-If you found this project helpful, consider giving it a **⭐️** on GitHub!
+Snapshot caching: Reduces token usage by summarizing shipments and voyages for the LLM
+
+📦 Tech Stack
+
+Next.js (Full-stack React Framework)
+
+Prisma ORM + Neon Postgres
+
+Google Gemini API (LLM)
+
+TailwindCSS (Styling)
+
+JWT (Authentication)
+
+Vercel (Deployment)
+
+☁️ Deployment (Vercel)
+
+Push your project to GitHub
+
+Import it to Vercel
+
+Add environment variables from .env to Vercel dashboard (Production scope)
+
+Vercel will run:
+
+postinstall: prisma generate
+vercel-build: prisma generate && next build
+
+
+Assign a custom domain & update DNS records if needed
+
+🔐 API Key Setup
+
+Get your Gemini API key from Google Gemini Studio
+
+Set it in .env:
+
+GEMINI_API_KEY=your_key
+
+👤 Author
+
+Your Name
+GitHub: @your-username
+Project: Smart Freight & Storage Planner
+
+📄 License
+
+This project is licensed under the MIT License — see the LICENSE file.
+
+⭐️ Support
+
+If you found this project helpful, consider giving it a ⭐️ on GitHub!
